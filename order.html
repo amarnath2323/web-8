@@ -1,0 +1,10 @@
+<!DOCTYPE html><html ng-app="orderApp"><head><title>Toy World - Order List</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script src="https://code.angularjs.org/1.8.2/angular.min.js"></script><style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fff7e9;color:#333}
+header{background:#ef476f;color:white;text-align:center;padding:25px}header h1{margin:0;font-size:30px}
+nav{background:#ffd166;text-align:center;padding:12px}nav a{color:#333;text-decoration:none;font-weight:bold;margin:0 18px}
+main{max-width:800px;margin:35px auto;background:white;padding:30px;border-radius:12px;box-shadow:0 3px 12px #0002}
+h2{color:#ef476f;text-align:center}input,select,textarea{padding:12px;border:1px solid #bbb;border-radius:6px;font-size:15px;margin:8px}
+button{background:#06a77d;color:white;border:0;padding:12px 20px;border-radius:6px;cursor:pointer}
+li{padding:10px;margin:8px 0;background:#fff4d6;border-radius:6px}
+footer{text-align:center;background:#333;color:white;padding:13px;margin-top:45px}
+</style></head><body ng-controller="orderCtrl"><header><h1>🧸 Toy World</h1><p>Play • Learn • Imagine</p></header><nav><a href="review.html">Customer Reviews</a> | <a href="bill.html">Bill Calculator</a> | <a href="order.html">Toy Order List</a></nav><main><h2>Toy Order List</h2><div style="text-align:center"><input ng-model="item" placeholder="Enter toy name"><button ng-click="add()">Add Toy</button></div><ul><li ng-repeat="t in items track by $index">{{t}}</li></ul><p ng-if="items.length==0">Your toy order list is empty.</p></main><footer>© 2026 Toy World Online Store</footer><script>angular.module("orderApp",[]).controller("orderCtrl",function($scope){$scope.items=[];$scope.add=function(){if($scope.item && $scope.item.trim()){$scope.items.push($scope.item);$scope.item="";}};});</script></body></html>
